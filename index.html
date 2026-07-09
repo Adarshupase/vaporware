@@ -32,6 +32,33 @@ the va_list still advances using va_arg and then some random value from the stac
 
         </p>
     </article>
+    <article class="post">
+        <h2>C++ Constructors in C, No really</h2>
+        <div class='date'>10-07-2026</div>
+        <p>
+            I was reading the GNU C manual and randomly checking intersting topics ehen i came across this 
+            "In C, a variable name or function name never conflicts with a structure type tag." So the immediate thought 
+            that came to my mind was we can use the structure name itself as the function name that creates and initializes a heap allocated
+            struct. this may sound familiar to you. yes the C++ constructor well not entirely.
+        </p>
+     
+            <code>
+                struct object {
+                   char *name;
+                   int size;
+                };
+                struct object object(char *name, int size){
+                    struct object object;
+                    object.name = name;
+                    object.size = size;
+                    return object;
+                }
+                int main(){
+                   object obj1 = object("obj1",4);
+                   return 0;
+                }
+            </code>
+    </article>
    
 </main>
 
