@@ -46,18 +46,18 @@ the va_list still advances using va_arg and then some random value from the stac
         </p>
      
             <pre><code class="language-c">
-                struct object {\n
+                struct object {
                    char *name;
                    int size;
                 };
-                struct object object(char *name, int size){
-                    struct object object;
-                    object.name = name;
-                    object.size = size;
+                struct object *object(char *name, int size){
+                    struct object *object = malloc(sizeof (*object));
+                    object->name = name;
+                    object->size = size;
                     return object;
                 }
                 int main(){
-                   object obj1 = object("obj1",4);
+                   object *obj1 = object("obj1",4);
                    return 0;
                 }
             </code></pre>
